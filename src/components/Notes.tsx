@@ -12,9 +12,9 @@ export const Notes = () => {
 		if(input.length > 0){
 		setNotes([...notes,{'text': input}]);
 		setInput('');
-		if(inputRef.current){
-			inputRef.current.focus();
-		}	
+                    if(inputRef.current){
+                            inputRef.current.focus();
+                    }	
 		}
 	}
 	const remove = (element:number):void => {
@@ -23,7 +23,6 @@ export const Notes = () => {
 				return {text:val}
 			}
 		})
-		
 		setNotes(newSavedNotes)
 	}
 	
@@ -44,10 +43,10 @@ export const Notes = () => {
 				{notes.length > 0 && (
 				<div className="flex flex-col w-1/2 mx-auto border border-blue-400 mt-6 px-4">
 					{
-					  notes.map((note,index)=>(
-						  <div className="flex flex-row my-2 text-left">
-						  <button onClick={() => remove(index)} className="bg-red-600 text-white px-2 mr-2 rounded-full">-</button>
-						  <p className="flex-1" key={index}>{note.text}</p>
+					  notes.map((note,indexNotes)=>(
+						  <div key={indexNotes} className="flex flex-row my-2 text-left">
+						  <button onClick={() => remove(indexNotes)} className="bg-red-600 text-white px-2 mr-2 rounded-full">-</button>
+						  <p className="flex-1" key={indexNotes}>{note.text}</p>
 						  </div>
 					  ))
 					}
